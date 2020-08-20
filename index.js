@@ -96,10 +96,27 @@ class Car {
     this.milesPerGallon = milesPerGallon;
     this.tank = 0;
     this.odometer = 0;
-
+    }
+  fill(gallon){
+    this.tank += gallon
+  }
+  drive(distance){
+    if (this.tank > distance/this.milesPerGallon){
+      this.tank -= distance/this.milesPerGallon
+      this.odometer += distance
+    } else if (this.tank <= distance/this.milesPerGallon){
+      this.tank = 0
+      return `I ran out of fuel at ${this.odometer += (this.milesPerGallon)} miles!`
+    }
+    }
   }
 
-}
+const tundra = new Car('Toyota Tundra', 14)
+
+tundra.fill(1);
+tundra.drive(20);
+
+console.log(tundra.drive(40));
 
 /*
   TASK 3
